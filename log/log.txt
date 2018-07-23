@@ -1,0 +1,1 @@
+2018-07-23 15\:37\:31 INFO [org.huangqsh.log.service.LogService]\:56 Line - 这是一条日志
