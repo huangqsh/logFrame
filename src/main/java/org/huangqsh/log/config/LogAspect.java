@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class LogAspect {
 	
 	@Before("execution(* org.huangqsh.log.service..*.add*(..))&&@annotation(mylog)")
-	public <T> void MethedBefore(JoinPoint joinpoint , MyLog mylog) {
+	public void MethedBefore(JoinPoint joinpoint , MyLog mylog) {
 		String className = joinpoint.getSignature().getDeclaringTypeName();
 		Logger aoplog = Logger.getLogger(className);
         aoplog.setLevel(Level.DEBUG);
@@ -27,7 +27,6 @@ public class LogAspect {
 			PrintLog(aoplog,mylog);
 		}else if(LogType.FILE.equals(mylog.type())){
 			String filename = "log/log.txt";
-			System.out.println(filename);
 			//文件日志
 			try {
 				aoplog.addAppender(new FileAppender(new PatternLayout("%d{yyyy-MM-dd HH\\:mm\\:ss} %p [%c]\\:%L Line - %m%n"), filename));
@@ -64,7 +63,5 @@ public class LogAspect {
 		default:
 			break;
 		}
-		
 	}
-
 }

@@ -16,4 +16,8 @@ public class LogService {
 	public void add() {
 		System.out.println("LogService method ---->add()");
 	}
+	
+	public void delete() {
+		System.out.println("LogService method ---->delete()");
+	}
 }

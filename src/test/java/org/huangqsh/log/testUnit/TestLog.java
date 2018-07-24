@@ -8,15 +8,19 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:/spring-config/spring-*.xml"})
+@ContextConfiguration(locations = {"classpath:/spring-config/spring-core.xml"})
 public class TestLog {
 	
 	@Autowired
 	private LogService logService;
-
+	
 	@Test
-	public void test() {
+	public void test1() {
+		logService.delete();
+	}
+	
+	@Test
+	public void test2() {
 		logService.add();
 	}
-
 }
